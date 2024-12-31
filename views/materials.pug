@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title
+    p download links
+    if materials_list.length
+        ul 
+            li 
+                form(action='/materials/all/download')
+                    input(type='submit' value='download all')
+            each materials in materials_list
+                li 
+                    a(href=materials.url + '/download') #{materials.name}
+    else 
+        p No materials found.
+
